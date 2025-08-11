@@ -1,4 +1,5 @@
 package com.share.trip.booking.dto;
+
 import java.time.LocalDateTime;
 
 public class BookingResponse {

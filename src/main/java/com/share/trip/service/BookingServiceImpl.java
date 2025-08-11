@@ -9,8 +9,8 @@ import com.share.trip.model.User;
 import com.share.trip.repository.BookingRepository;
 import com.share.trip.repository.RideRepository;
 import com.share.trip.repository.UserRepository;
-import com.share.trip.ride.dto.BookingRequest;
-import com.share.trip.ride.dto.BookingResponse;
+import com.share.trip.booking.dto.BookingRequest;
+import com.share.trip.booking.dto.BookingResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

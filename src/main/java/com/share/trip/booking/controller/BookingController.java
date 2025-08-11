@@ -1,7 +1,7 @@
 package com.share.trip.booking.controller;
 
-import com.share.trip.ride.dto.BookingRequest;
-import com.share.trip.ride.dto.BookingResponse;
+import com.share.trip.booking.dto.BookingRequest;
+import com.share.trip.booking.dto.BookingResponse;
 import com.share.trip.service.BookingService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

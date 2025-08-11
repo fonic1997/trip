@@ -10,7 +10,8 @@ public class Booking {
     public enum Status {
         PENDING,
         APPROVED,
-        REJECTED
+        REJECTED,
+        CANCELLED
     }
 
     @Id
@@ -18,35 +19,38 @@ public class Booking {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ride_id", nullable = false)
-    private Ride ride;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "passenger_id", nullable = false)
     private User passenger;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ride_id", nullable = false)
+    private Ride ride;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status = Status.PENDING;
 
-    @Column(nullable = false, updatable = false)
+    @Column(name = "seats_booked", nullable = false)
+    private Integer seatsBooked;
+
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
     @PrePersist
-    protected void onCreate() {
+    public void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = createdAt;
     }
 
     @PreUpdate
-    protected void onUpdate() {
+    public void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
 
-    // Getters and Setters below (no lombok)
+    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -54,14 +58,6 @@ public class Booking {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Ride getRide() {
-        return ride;
-    }
-
-    public void setRide(Ride ride) {
-        this.ride = ride;
     }
 
     public User getPassenger() {
@@ -72,12 +68,28 @@ public class Booking {
         this.passenger = passenger;
     }
 
+    public Ride getRide() {
+        return ride;
+    }
+
+    public void setRide(Ride ride) {
+        this.ride = ride;
+    }
+
     public Status getStatus() {
         return status;
     }
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Integer getSeatsBooked() {
+        return seatsBooked;
+    }
+
+    public void setSeatsBooked(Integer seatsBooked) {
+        this.seatsBooked = seatsBooked;
     }
 
     public LocalDateTime getCreatedAt() {

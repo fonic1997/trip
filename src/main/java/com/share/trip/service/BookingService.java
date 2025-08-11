@@ -1,7 +1,7 @@
 package com.share.trip.service;
 
-import com.share.trip.ride.dto.BookingRequest;
-import com.share.trip.ride.dto.BookingResponse;
+import com.share.trip.booking.dto.BookingRequest;
+import com.share.trip.booking.dto.BookingResponse;
 
 import java.util.List;
 
